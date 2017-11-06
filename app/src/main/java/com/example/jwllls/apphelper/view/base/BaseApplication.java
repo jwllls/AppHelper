@@ -1,4 +1,4 @@
-package com.example.jwllls.apphelper.base;
+package com.example.jwllls.apphelper.view.base;
 
 import android.app.Application;
 

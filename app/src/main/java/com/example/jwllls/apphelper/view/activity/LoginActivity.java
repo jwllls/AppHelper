@@ -1,10 +1,10 @@
-package com.example.jwllls.apphelper.activity;
+package com.example.jwllls.apphelper.view.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.example.jwllls.apphelper.R;
-import com.example.jwllls.apphelper.base.BaseActivity;
+import com.example.jwllls.apphelper.view.base.BaseActivity;
 
 /**
  * Created by jwllls on 2017/10/22.

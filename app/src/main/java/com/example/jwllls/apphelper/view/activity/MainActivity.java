@@ -1,4 +1,4 @@
-package com.example.jwllls.apphelper.activity;
+package com.example.jwllls.apphelper.view.activity;
 
 
 import android.os.Bundle;
@@ -7,12 +7,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
 import com.example.jwllls.apphelper.R;
-import com.example.jwllls.apphelper.adapter.MainViewPagerAdapter;
-import com.example.jwllls.apphelper.base.BaseActivity;
-import com.example.jwllls.apphelper.fragment.GameFragment;
-import com.example.jwllls.apphelper.fragment.RankFragment;
-import com.example.jwllls.apphelper.fragment.RecommendFragment;
-import com.example.jwllls.apphelper.fragment.SortFragment;
+import com.example.jwllls.apphelper.view.adapter.MainViewPagerAdapter;
+import com.example.jwllls.apphelper.view.base.BaseActivity;
+import com.example.jwllls.apphelper.view.fragment.GameFragment;
+import com.example.jwllls.apphelper.view.fragment.RankFragment;
+import com.example.jwllls.apphelper.view.fragment.RecommendFragment;
+import com.example.jwllls.apphelper.view.fragment.SortFragment;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.jwllls.apphelper.base;
+package com.example.jwllls.apphelper.view.base;
 
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
