@@ -1,8 +1,11 @@
 package com.example.jwllls.apphelper.data.model;
 
+
+import com.example.jwllls.apphelper.data.bean.AppInfo;
+import com.example.jwllls.apphelper.data.bean.PageBean;
 import com.example.jwllls.apphelper.data.http.ApiService;
 
-import okhttp3.Callback;
+import rx.Observable;
 
 /**
  * Created by jwllls on 2017/11/27.
@@ -16,7 +19,7 @@ public class RecommendModel {
         this.mApiService = mApiService;
     }
 
-    public void getApps(Callback jsonPrama) {
-        mApiService.getApps("");
+    public Observable<PageBean<AppInfo>> getApps() {
+        return mApiService.getApps("{'page':0}");
     }
 }

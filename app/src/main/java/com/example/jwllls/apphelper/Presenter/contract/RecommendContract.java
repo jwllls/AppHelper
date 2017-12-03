@@ -1,5 +1,7 @@
 package com.example.jwllls.apphelper.Presenter.contract;
 
+import com.example.jwllls.apphelper.data.bean.AppInfo;
+import com.example.jwllls.apphelper.data.bean.PageBean;
 import com.example.jwllls.apphelper.ui.BaseView;
 
 /**
@@ -8,8 +10,12 @@ import com.example.jwllls.apphelper.ui.BaseView;
 
 public interface RecommendContract {
 
-    interface View extends BaseView<Presenter>{
+    interface View extends BaseView<Presenter> {
         //此处创建View要执行的方法。
+        void showResult(PageBean<AppInfo> appinfo);
+
+        void showNoData();
+
 
     }
 

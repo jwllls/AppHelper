@@ -4,15 +4,20 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.example.jwllls.apphelper.Presenter.RecommendPresenter;
 import com.example.jwllls.apphelper.Presenter.contract.RecommendContract;
 import com.example.jwllls.apphelper.R;
+import com.example.jwllls.apphelper.data.bean.AppInfo;
+import com.example.jwllls.apphelper.data.bean.PageBean;
 import com.example.jwllls.apphelper.di.component.BaseComponent;
 import com.example.jwllls.apphelper.di.component.DaggerRecommendComponent;
 import com.example.jwllls.apphelper.di.module.RecommendModule;
 import com.example.jwllls.apphelper.ui.adapter.RecommendAdapter;
 import com.example.jwllls.apphelper.ui.base.BaseFragment;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -24,14 +29,15 @@ import butterknife.BindView;
 
 public class RecommendFragment extends BaseFragment<RecommendPresenter> implements RecommendContract.View {
 
+    @BindView(R.id.recycle_view)
+    RecyclerView mRecycleView;
+
+
     @Override
     public int setLayout() {
         return R.layout.fragment_recommend;
     }
 
-
-    @BindView(R.id.recycle_view)
-    RecyclerView mRecycleView;
 
     @Inject
     ProgressDialog mProgressDialog;
@@ -55,16 +61,15 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter> implemen
 
 
     private void initRecyclerView() {
+
         mRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        mAdapter = new RecommendAdapter();
-
-        mRecycleView.setAdapter(null);
     }
 
 
     @Override
     public void init() {
+        initRecyclerView();
         mPresenter.getData();
     }
 
@@ -79,5 +84,18 @@ public class RecommendFragment extends BaseFragment<RecommendPresenter> implemen
         mProgressDialog.dismiss();
     }
 
+
+    @Override
+    public void showResult(PageBean<AppInfo> respondse) {
+        List<AppInfo> list = respondse.getDatas();
+        mAdapter = new RecommendAdapter(R.layout.item_recommend);
+        mAdapter.setNewData(list);
+        mRecycleView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void showNoData() {
+        Toast.makeText(getActivity(), "没有数据", Toast.LENGTH_SHORT).show();
+    }
 
 }
